@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
 		}
 		grid[GRIDSIZE-1][GRIDSIZE-1] = 2;
 	}
-
+    // prints the grid
 	printGrid(grid);
 
 	while(!checkGameOver(grid)) {
