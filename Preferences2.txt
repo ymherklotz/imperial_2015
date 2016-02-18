@@ -1,0 +1,35 @@
+{
+	"auto_complete": true,
+	"caret_style": "solid",
+	"color_scheme": "Packages/User/SublimeLinter/Tomorrow-Night (SL).tmTheme",
+	"draw_white_space": "selection",
+	"find_selected_text": true,
+	"fold_buttons": false,
+	"font_face": "SourceCodePro-Medium",
+	"font_options":
+	[
+		"subpixel_antialias",
+		"no_bold"
+	],
+	"font_size": 14,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_padding_bottom": 0,
+	"line_padding_top": 0,
+	"rulers":
+	[
+		72,
+		79
+	],
+	"scroll_past_end": false,
+	"show_full_path": true,
+	"show_minimap": true,
+	"theme": "Soda Dark.sublime-theme",
+	"wide_caret": true,
+	"word_wrap": true,
+	"wrap_width": 80
+}
