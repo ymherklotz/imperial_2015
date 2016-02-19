@@ -7,6 +7,10 @@ struct intList {
 	intList* next_el;
 };
 
+// add functions to add elements to a list
+// create a list and be able to order them
+// make ordered linked list
+
 int main() {
 	intList* ilist = NULL;
 	int el, n;
