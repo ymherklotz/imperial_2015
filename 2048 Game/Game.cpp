@@ -6,7 +6,10 @@
 #include <string>
 #include <sstream>
 #include <cstdlib>
+<<<<<<< HEAD
 #include <ctime>
+=======
+>>>>>>> 0a5ef9619d59eeb0769e1195298ba2f5a37fc6b5
 
 /* 
  * defines names for the constants we want to use
@@ -35,7 +38,11 @@ bool checkGameOver(int(&) [GRIDSIZE][GRIDSIZE]);
  * as this is easier done by a seperate function
  */
 int main(int argc, char* argv[]) {
+<<<<<<< HEAD
 	// defines the 2D and tmp array that is used to check change
+=======
+	// defines the 2D and tmp array
+>>>>>>> 0a5ef9619d59eeb0769e1195298ba2f5a37fc6b5
 	int grid[GRIDSIZE][GRIDSIZE];
 	int before[GRIDSIZE][GRIDSIZE];
 	// defines tmp string file name to check if file exists
@@ -83,7 +90,13 @@ int main(int argc, char* argv[]) {
 	 */
 	while(!checkGameOver(grid)) {
 		// gets user input
+<<<<<<< HEAD
 		cin >> usrInput;
+=======
+		cout << "Select move [w,a,s,d]: ";
+		cin >> usrInput;
+		cout << endl;
+>>>>>>> 0a5ef9619d59eeb0769e1195298ba2f5a37fc6b5
 		// copies the grid into the before grid
 		for(int i = 0; i < GRIDSIZE; ++i) {
 			for(int j = 0; j < GRIDSIZE; ++j)  {
@@ -94,7 +107,10 @@ int main(int argc, char* argv[]) {
 		moveGrid(grid, usrInput);
 		// check if grid has changed which means that the movement was valid
 		if(checkGridChange(grid, before)){
+<<<<<<< HEAD
 			cout << endl;
+=======
+>>>>>>> 0a5ef9619d59eeb0769e1195298ba2f5a37fc6b5
 			// places the random number in the correct base defined above
 			placeBase(grid);
 			// prints the grid
@@ -265,4 +281,8 @@ bool checkGameOver(int (&gridArray)[GRIDSIZE][GRIDSIZE]) {
 	}
 	// if none of the if statements is true it will end the games
 	return true;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0a5ef9619d59eeb0769e1195298ba2f5a37fc6b5
