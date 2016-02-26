@@ -1,0 +1,67 @@
+MSORT	STMED	R13!, {R4-R7, LR}
+		SUB		R3, R1, R0
+		CMP		R3, #4
+		LDMEDLS	R13!, {R4-R7, PC}
+		
+		MOV		R3, R3, LSR #3
+		MOV		R3, R3, LSL #2
+		ADD		R3, R3, R0
+		
+		MOV		R4, R0
+		MOV		R5, R1
+		MOV		R6, R3
+		MOV		R7, R2
+		
+		MOV		R1, R6
+		
+		BL		MSORT
+		
+		MOV		R2, R7
+		MOV		R1, R5
+		MOV		R0, R6
+		
+		BL		MSORT
+		
+		MOV		R0, R4
+		MOV		R1, R6
+		MOV		R2, R5
+		MOV		R3, R7
+		BL		MERGE
+		LDMED	R13!, {R4-R7, PC}
+		
+MERGE
+		STMED	R13!, {R4-R7, R14}
+		MOV		R4, R3
+		MOV		R5, R3
+		MOV		R3, R2
+		MOV		R2, R1
+		
+MLOOP	CMP		R0, R1
+		LDRHS	R7, [R2]
+		BHS		M2SEL
+		CMP		R2, R3
+		LDRHS	R6, [R0]
+		BHS		M1SEL
+		LDR		R6, [R0]
+		LDR		R7, [R2]
+		CMP		R6, R7
+		BLO		M1SEL
+		
+M2SEL	ADDHS	R2, R2, #4
+		STRHS	R7, [R5],#4
+		
+MEND		CMP		R0, R1
+		CMPEQ	R2, R3
+		BNE		MLOOP
+		
+CLOOP	LDR		R6, [R5, #-4]!
+		STR		R6, [R2, #-4]!
+		CMP		R4, R5
+		BNE		CLOOP
+		MOV		R0, R2
+		MOV		R1, R3
+		LDMED	R13!, {R4-R7, PC}
+		
+M1SEL	ADD		R0, R0, #4
+		STR		R6, [R5],#4
+		B		MEND

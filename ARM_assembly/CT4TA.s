@@ -1,0 +1,6 @@
+		MOV		R2, #0
+		ADDS		R3, R1, R1
+		MOVVS	R2, #1
+		MOV		R0, R1, LSL #30
+		ADDS		R1, R3, R1, ASR #2
+		MOVVS	R2, #1
