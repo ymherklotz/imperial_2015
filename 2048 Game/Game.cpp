@@ -75,7 +75,6 @@ int main(int argc, char* argv[]) {
 		grid[GRIDSIZE-1][GRIDSIZE-1] = BASE;
 	}
 	printGrid(grid);
-
 	/*
 	 * executes this loop while the game isn't over, which means that the user can
 	 * still have turns and there are zero's left, as well as adjacent equivalent 
