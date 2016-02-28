@@ -99,3 +99,24 @@ void deallocateList(linkNode* &hdList) {
 		delete tmpNode;	
 	}
 }
+
+int countEqual(linkNode* hdList, list_t el) {
+	int count = 0;
+	while(hdList != NULL) {
+		if(hdList->element == el) {
+			++count;
+		}
+		hdList = hdList->next;
+	}
+	return count;
+}
+
+int countEqualRec(linkNode* hdList, list_t el, int count) {
+	if(hdList != NULL) {
+		if(hdList->element == el) {
+			++count;
+		}
+		countEqualRec(hdList->next, el, count);
+	}
+	return count;
+}
