@@ -10,19 +10,31 @@ struct linkNode {
 };
 
 void addElement(linkNode*&, list_t&);
-void addElementReverse(linkNode*&, list_t&);
+void addElementSort(linkNode*&, list_t&);
+void printList(linkNode*&);
+int listLengthRecursive(linkNode* hdList, int &len);
+int listLength(linkNode*);
+void printLinkedList(linkNode*);
+void deallocateListRecursive(linkNode*&);
+void deallocateList(linkNode*&);
 
 int main() {
 	linkNode* firstList = NULL;
-	linkNode* secondList = NULL;
 
 	int n;
 	list_t el;
 	cout << "Number of elements in list: ";
 	cin >> n;
+
 	for(int i = 0; i < n; ++i) {
-		
+		cin >> el;
+		addElementSort(firstList, el);
 	}
+
+	printLinkedList(firstList);
+	deallocateListRecursive(firstList);
+	cout << "firstList: " << firstList << endl;
+	return 0;
 }
 
 void addElement(linkNode* &hdList, list_t &el) {
@@ -32,10 +44,58 @@ void addElement(linkNode* &hdList, list_t &el) {
 	hdList = newNode;
 }
 
-void addElementReverse(linkNode* &hdList, list_t &el) {
-	if(hdList == NULL) {
-					
+void addElementSort(linkNode* &hdList, list_t &el) {
+	if(hdList == NULL || hdList->element < el) {
+		addElement(hdList, el);
 	} else {
-		
+		linkNode* tmpNode = hdList;
+		linkNode* prevNode = hdList;
+		while(tmpNode != NULL && tmpNode->element >= el) {
+			prevNode = tmpNode;
+			tmpNode = tmpNode->next;
+		}
+		linkNode* newNode = new linkNode;
+		newNode->next = tmpNode;
+		newNode->element = el;
+		prevNode->next = newNode;
+	}
+}
+
+int listLengthRecursive(linkNode* hdList, int &len) {
+	if(hdList != NULL) {
+		listLengthRecursive(hdList->next, ++len);
+	}
+	return len;
+}
+
+int listLength(linkNode* hdList) {
+	int len = 0;
+	while(hdList != NULL) {
+		++len;
+	}
+	return len;
+}
+
+void printLinkedList(linkNode* hdList) {
+	if(hdList != NULL) {
+		printLinkedList(hdList->next);
+		cout << hdList->element << endl;
+	}
+}
+
+void deallocateListRecursive(linkNode* &hdList) {
+	if(hdList != NULL) {
+		linkNode* tmpNode = hdList;
+		hdList = hdList->next;
+		delete tmpNode;
+		deallocateListRecursive(hdList);
+	}
+}
+
+void deallocateList(linkNode* &hdList) {
+	while(hdList != NULL) {
+		linkNode* tmpNode = hdList;
+		hdList = hdList->next;
+		delete tmpNode;	
 	}
 }
