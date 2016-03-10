@@ -1,0 +1,5 @@
+10
+Iridium 60.5 120.0
+Platinium 80 12.4
+Iron 31 29.3
+Something 30 15
